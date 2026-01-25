@@ -43,7 +43,7 @@
                   Senior Angular Developer
                 </p>
                 <div class="flex flex-wrap gap-4 text-sm">
-              <span class="flex items-center gap-2">
+              <span id="span_location" class="flex items-center gap-2">
                 <svg
                   class="w-4 h-4"
                   fill="none"
@@ -65,7 +65,7 @@
                 </svg>
                 España
               </span>
-              <span class="flex items-center gap-2">
+              <span id="span_phone" class="flex items-center gap-2">
                 <svg
                   class="w-4 h-4"
                   fill="none"
@@ -314,7 +314,7 @@
                     >
                   </div>
                   <p class="text-sm text-slate-500 italic mb-2">
-                    Proyectos destacados: Mercadona
+                    Proyectos de Mercadona
                   </p>
                   <ul class="text-sm text-slate-600 space-y-1 ml-4">
                     <li>
@@ -328,6 +328,9 @@
                     <li>
                       • Integración de procesos OCR para digitalización de
                       facturas y albaranes.
+                    </li>
+                    <li>
+                      • Creación de proyectos desde 0
                     </li>
                     <li>
                       • Mejora de la calidad del código mediante SonarQube,
@@ -351,14 +354,20 @@
                       >01/2021 – 03/2022</span
                     >
                   </div>
+                  <p class="text-sm text-slate-500 italic mb-2">
+                    Proyecto: Iryo
+                  </p>
                   <ul class="text-sm text-slate-600 space-y-1 ml-4">
                     <li>
-                      • Desarrollo de funcionalidades frontend con Angular.
+                      • Desarrollo de funcionalidades frontend con Angular para Iryo.
                     </li>
-                    <li>• Refactorización de código y resolución de bugs.</li>
+                    <li>• Optimización de código y resolución de bugs.</li>
                     <li>
                       • Creación de formularios, servicios y componentes
                       comunes.
+                    </li>
+                    <li>
+                      • Creación de librería propia para gestión de formularios.
                     </li>
                   </ul>
                 </div>
@@ -531,13 +540,21 @@
       </div>
     </div>
     <script>
+      const hideTelephone = false;
+
       const defaultConfig = {
         full_name: "JORGE JESÚS CAMPOY LÓPEZ",
         job_title: "Senior Angular Developer",
         phone: "685 041 223",
         email: "jorgecampoy81@gmail.com",
         profile_text:
-          "Angular Developer con más de 5 años de experiencia en proyectos enterprise para sectores como banca, seguros y retail. Especializado en arquitectura frontend, formularios complejos, gestión de estado con NGRX y calidad de código. Perfil resolutivo, orientado a buenas prácticas, rendimiento y trabajo en equipo.",
+          `Angular Developer con más de 4 años de experiencia en proyectos
+            enterprise para sectores como banca, seguros y retail.
+            Desarrollo de proyectos desde 0 con autonomía en el trabajo 
+            a veces ayudando en las decisiones sobre la arquitectura del frontend
+            además de formularios complejos, gestión de estado con NGRX y calidad de código.
+            Perfil resolutivo, orientado a buenas prácticas, rendimiento y trabajo
+            en equipo.`,
         background_color: "#1a1a2e",
         header_color: "#334155",
         text_color: "#475569",
@@ -563,6 +580,12 @@
           config.email || defaultConfig.email;
         document.getElementById("profile").textContent =
           config.profile_text || defaultConfig.profile_text;
+
+          
+        if (hideTelephone) {
+          document.getElementById("span_phone").remove();
+          document.getElementById("span_location").remove();
+        }
 
         // Update colors
         const bgColor =
