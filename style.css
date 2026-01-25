@@ -1,0 +1,93 @@
+body {
+  box-sizing: border-box;
+}
+
+.font-heading {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.font-body {
+  font-family:
+    "Source Sans Pro",
+    -apple-system,
+    sans-serif;
+}
+
+.cv-container {
+  background: linear-gradient(
+    135deg,
+    #1a1a2e 0%,
+    #16213e 50%,
+    #0f3460 100%
+  );
+}
+
+.cv-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.3),
+    0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, currentColor, transparent);
+  border-radius: 2px;
+}
+
+.experience-item {
+  position: relative;
+  padding-left: 20px;
+}
+
+.experience-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.skill-tag {
+  transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+  transform: translateY(-2px);
+}
+
+.contact-link {
+  transition: all 0.2s ease;
+}
+
+.contact-link:hover {
+  opacity: 0.8;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+@media print {
+  .cv-container {
+    background: white;
+    padding: 0;
+  }
+  .cv-card {
+    box-shadow: none;
+    max-width: 100%;
+  }
+}
