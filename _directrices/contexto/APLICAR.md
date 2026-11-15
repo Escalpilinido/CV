@@ -13,8 +13,8 @@ Instrucciones para un agente (Claude Code) en un equipo o un proyecto donde el k
 
 1. Comprueba que hay Node 18 o posterior (`node --version`) y Claude Code.
 2. Ejecuta `node instalar.mjs --simular` desde esta carpeta y enseña la salida al usuario.
-3. Con su OK, ejecuta `node instalar.mjs`. Copia las skills `tarea` y `destilar` a `~/.claude/skills/` y los scripts de planes a `~/.claude/hooks/`, y registra el hook de bienvenida en `~/.claude/settings.json`. Antes de modificarlo deja una copia en `settings.json.antes-del-kit`.
-4. Comprueba que existen los cinco archivos copiados, que `settings.json` sigue siendo JSON válido y que tiene una entrada `SessionStart` que llama a `planes-bienvenida.mjs`.
+3. Con su OK, ejecuta `node instalar.mjs`. Copia las skills `tarea`, `destilar`, `probar` y `generalizar` a `~/.claude/skills/` y los scripts de planes a `~/.claude/hooks/`, y registra el hook de bienvenida en `~/.claude/settings.json`. Antes de modificarlo deja una copia en `settings.json.antes-del-kit`.
+4. Comprueba que existen los siete archivos copiados, que `settings.json` sigue siendo JSON válido y que tiene una entrada `SessionStart` que llama a `planes-bienvenida.mjs`.
 
 ## 2. Preparar un proyecto (sólo en los que el usuario diga)
 
@@ -41,7 +41,7 @@ Instrucciones para un agente (Claude Code) en un equipo o un proyecto donde el k
 
 - En el proyecto, `node "$HOME/.claude/hooks/planes-bienvenida.mjs"`: lista los planes, o no escribe nada si no hay `docs/planes/`.
 - En el proyecto, `node "$HOME/.claude/hooks/planes-commit.mjs" --simular`: no modifica nada y dice qué pasaría al commit.
-- En una sesión nueva de Claude Code, las skills `tarea` y `destilar` aparecen en la lista.
+- En una sesión nueva de Claude Code, las skills `tarea`, `destilar`, `probar` y `generalizar` aparecen en la lista.
 
 ## 4. Medir (opcional)
 

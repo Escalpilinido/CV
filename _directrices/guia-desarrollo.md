@@ -87,6 +87,10 @@ Lección de origen (Pokédexter, 2026-11-13): una ficha que PokeAPI no encontrab
 - Medidas relativas antes que absolutas. Sin estilos inline.
 - Pensar como experto UX/UI: estados de carga, vacío y error en todo lo que pide datos.
 - Borrados importantes con diálogo de confirmación, nunca `window.alert`.
+- El control se elige por lo que representa:
+  - Sí o no (el resultado depende de verdadero o falso): casilla (checkbox).
+  - Dos opciones con nombre, y sólo dos (por ejemplo «Incluir» y «Solo»): veleta, un conmutador de dos posiciones que enseña las dos y, al pulsar cualquiera, invierte la selección. Es la opción buena cuando hace falta una mejora semántica: «Incluir» podría ser una casilla, pero cambia el sentido de todas las demás y conviene que se distinga de ellas.
+  - Más de dos opciones: stepper (como el de tamaños de pantalla de la cabecera) o combo, lo que se decida en el momento.
 - Formularios públicos: honeypot siempre; acciones sensibles con rate-limit y CAPTCHA.
 
 ## 6. Angular
@@ -99,3 +103,4 @@ Lección de origen (Pokédexter, 2026-11-13): una ficha que PokeAPI no encontrab
 
 - JSDoc en métodos y funciones; cada archivo TypeScript empieza con un comentario de propósito y funcionamiento.
 - Cada requisito tiene una prueba cuyo nombre lo describe en una frase legible; leídas en orden, cuentan qué hace el producto. Las pruebas no dependen de la red (APIs mockeadas).
+- Toda tarea definida deja una prueba (skill `/probar`). Si una prueba falla, se corrige el código, nunca la prueba, salvo que la tarea pidiera cambiar ese comportamiento; entonces se actualiza esa prueba.

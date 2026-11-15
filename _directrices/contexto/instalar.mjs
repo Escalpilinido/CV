@@ -1,5 +1,5 @@
 // Instala el kit de contexto en Claude Code para todos los proyectos del equipo en el que se ejecuta.
-// Copia las skills `tarea` y `destilar` a `~/.claude/skills/` y los scripts de planes a `~/.claude/hooks/`
+// Copia las skills `tarea`, `destilar`, `probar` y `generalizar` a `~/.claude/skills/` y los scripts de planes a `~/.claude/hooks/`
 // (`planes-bienvenida.mjs`, `planes-commit.mjs` y `planes-util.mjs`), y registra el primero como hook
 // SessionStart en `~/.claude/settings.json` si no lo está.
 // Se puede repetir: sobrescribe las copias con las de este repositorio, que es la fuente única.
@@ -16,6 +16,8 @@ const HOOK_FILE = 'planes-bienvenida.mjs';
 const COPIES = [
   ['skills/tarea/SKILL.md', 'skills/tarea/SKILL.md'],
   ['skills/destilar/SKILL.md', 'skills/destilar/SKILL.md'],
+  ['skills/probar/SKILL.md', 'skills/probar/SKILL.md'],
+  ['skills/generalizar/SKILL.md', 'skills/generalizar/SKILL.md'],
   [`hooks/${HOOK_FILE}`, `hooks/${HOOK_FILE}`],
   ['hooks/planes-commit.mjs', 'hooks/planes-commit.mjs'],
   ['hooks/planes-util.mjs', 'hooks/planes-util.mjs'],

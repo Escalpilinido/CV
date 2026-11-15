@@ -12,8 +12,12 @@ Kit para gastar menos tokens: el contexto de cada zona del producto vive en un a
 | Vuelves tras más de una hora y el contexto es grande | Sesión nueva: la caché caducó y se reescribe entera. |
 | Retoque de lo recién hecho, sobre los mismos archivos | Seguir en la sesión. |
 | Pregunta corta sobre lo que hay en pantalla | Seguir en la sesión. |
+| Lo siguiente es mecánico y está acotado en el plan | Sesión nueva con un modelo inferior (Sonnet o Haiku). |
+| Lo siguiente es diseño, una decisión ambigua o un cambio arriesgado | Modelo frontera (Opus). |
 
 Regla rápida: seguir compensa si quedan menos de unas 15 llamadas a herramientas sobre lo ya leído. Con más, sale más barato empezar limpio. El tamaño del contexto se ve con `/context`.
+
+El agente lo propone sin que se le pida, en una línea y antes de empezar: sesión nueva, otro modelo o las dos cosas (regla global de `~/AGENTS.md`, «Comunicación»). Decide el usuario.
 
 Por qué: cada llamada a una herramienta relee todo el contexto. Arrancar una sesión cuesta poco y una sola vez; un contexto grande se paga en cada llamada.
 
@@ -45,6 +49,8 @@ node medir-tokens.mjs <carpeta-del-proyecto> [--dias 7] [--top 10]
 - **Qué no se puede romper lo dicen las pruebas**, no el plan: fallan solas cuando algo se rompe. El plan sólo apunta a ellas.
 - **«destila: …»** (skill `destilar`): crea o actualiza el plan de una zona.
 - **«Vamos a continuar con \<zona\>»** (skill `tarea`): una sesión nueva lee el plan, hace la siguiente tarea y deja el plan al día.
+- **«probar»** (skill `probar`): toda tarea definida deja una prueba; si una prueba falla se corrige el código, salvo que la tarea pidiera cambiar ese comportamiento. Basta citar la palabra en el prompt.
+- **«generalizar: …»** (skill `generalizar`): convierte una instrucción en regla para todos los proyectos, la guarda en este kit y hace commit y push de CV.
 - **Lo hecho no se queda en el plan.** Al terminar una tarea va a «Hecho (sin commit)», que se acumula entre sesiones hasta el commit. Se recupera con `git log --grep "<palabra>"` o `git log -p -- docs/planes/<zona>.md`.
 - **Al commitear** (`planes-commit.mjs`, en la sesión que sea): borra «Hecho (sin commit)» de los planes e imprime los bloques `Hecho (<zona>):` para el cuerpo del mensaje de commit. También lista los planes tocados que hay que condensar antes: los que pasan del tope o conservan el formato antiguo. Con `--simular` no modifica nada.
 - **Hook de bienvenida** (`planes-bienvenida.mjs`): al abrir sesión lista los planes con su siguiente tarea, avisa de los que pasan del tope y recuerda llevar «Hecho (sin commit)» al commit. En un proyecto sin `docs/planes/` no escribe nada.
