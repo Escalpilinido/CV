@@ -98,6 +98,7 @@ Lección de origen (Pokédexter, 2026-11-13): una ficha que PokeAPI no encontrab
 - Control flow `@if`/`@for`; signals antes que observables cuando se pueda; `inject()`; sin getters/setters.
 - `effect` desde el constructor.
 - Rutas desde una constante (`routingPaths`), nunca escritas a mano.
+- Componentes presentadores: los pequeños que sólo muestran información (y a lo sumo la formatean) no llevan lógica de negocio. Reciben datos por `input()` y emiten cada evento con un `output()`; quien los usa lo escucha y aplica la lógica que necesite. Así el mismo componente sirve en cualquier sitio y la lógica vive en un único punto: el contenedor.
 
 ## 7. Documentación y pruebas
 
